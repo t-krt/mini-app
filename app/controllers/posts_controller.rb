@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(id: :DESC)
+    @posts = Post.order(id: :DESC)
   end
 
   def new
@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    Post.create(post_params)
+    redirect_to root_path, notice: "投稿が完了しました"
+    binding.pry
   end
 
   def edit
@@ -22,7 +25,8 @@ class PostsController < ApplicationController
   def destroy
   end
 
-  # def post_params
-  #   params.require(:post).permit(:post)
-  # end
+  private
+  def post_params
+    params.require(:post).permit(:title, :post).merge(user_id: params[:user_id])
+  end
 end
