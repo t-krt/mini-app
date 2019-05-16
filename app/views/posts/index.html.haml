@@ -1,0 +1,6 @@
+%h1 Posts#index
+- @posts.each do |post|
+  .content_post
+    = simple_format(post.post)
+    .name 
+      = post.user.name
