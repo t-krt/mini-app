@@ -1,4 +1,4 @@
 .content_post
   = simple_format(post.post)
   %span.name 
-    = link_to post.user.name, 
+    = link_to post.user.name, user_path(current_user)
