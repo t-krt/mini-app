@@ -1,8 +1,4 @@
-.contents-row
-  = form_for(@post) do |f|
-    %p
-      = f.text_field :title, placeholder: "title"
-    %p
-      = f.text_area :post, placeholder: "Please enter contents"
-    %p.btn
-      = f.submit
+%h2
+  新規投稿
+= render partial: "form"
+= link_to "トップへ戻る", root_path
