@@ -1,0 +1,10 @@
+.contents-row
+  = form_for(@post) do |f|
+    %p
+      = f.label(:title, "タイトル")
+      = f.text_field :title, placeholder: "title"
+    %p
+      = f.label(:post, "本文")
+      = f.text_area :post, placeholder: "Please enter contents"
+    %p.btn
+      = f.submit "投稿"
