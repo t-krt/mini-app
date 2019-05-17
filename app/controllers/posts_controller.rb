@@ -30,6 +30,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy if @post.user.id == current_user.id
+    redirect_to root_path, notice: "削除しました"
   end
 
   private

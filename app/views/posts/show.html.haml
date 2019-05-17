@@ -1,0 +1,14 @@
+.contents-row 
+  .more
+    %i.material-icons
+      arrow_drop_down
+      %ul.more_list
+      - if user_signed_in? && current_user.id == @post.user.id
+        %li
+          = link_to '編集', edit_post_path(@post, post_id: params[:id])
+        %li 
+          = link_to '削除', "/posts/#{@post.id}", method: :delete
+    = simple_format(@post.title)  
+    = simple_format(@post.post)
+    %span.name 
+      = link_to @post.user.name, user_path(@post.user.id)
