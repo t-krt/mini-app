@@ -1,7 +1,9 @@
 <div class="contents row" >
-  <p><%= @name %>さんの投稿一覧</p>
-  <% @posts.each do |post| %>
-   <%= render partial: "posts/post", locals: { post: post } %>
-  <% end %>
-  <%= paginate(@posts) %>
+  <div class="user-show"><%= @name %>さんの投稿一覧</div>
+  <%= render @posts %>
+  <nav class="pagination">
+    <div class="paginate">
+      <%= paginate(@posts) %>
+    </div>
+  </nav>
 </div>
