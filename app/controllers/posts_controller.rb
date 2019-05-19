@@ -11,8 +11,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to root_path, notice: "投稿が完了しました"
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path, notice: "投稿が完了しました"
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -22,10 +26,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.user_id == current_user.id
-      post.update(post_params)
-      redirect_to root_path, notice: "編集が完了しました"
+    @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+      if @post.update(post_params)
+        redirect_to root_path, notice: "編集が完了しました"
+      else
+        render "edit"
+      end
     end
   end
 
