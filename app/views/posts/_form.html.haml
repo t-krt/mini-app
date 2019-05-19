@@ -1,5 +1,11 @@
 .contents-row
   = form_for(@post) do |f|
+    - if @post.errors.any?
+      .group-create-errors
+        %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました"
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
     %p.input-field.col.s6
       -# = f.label(:title, "タイトル")
       = f.text_field :title, placeholder: "title", class: "validate"

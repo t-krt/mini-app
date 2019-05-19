@@ -1,4 +1,6 @@
 .content_post
+  %h2
+    = simple_format(post.title) 
   .more
     %i.material-icons
       arrow_drop_down
@@ -10,7 +12,7 @@
             = link_to '編集', edit_post_path(post, post_id: params[:id])
           %li 
             = link_to '削除', "/posts/#{post.id}", method: :delete
-  = simple_format(post.title)  
-  = simple_format(post.post)
-  %span.name 
+  .innerS
+    = truncate(post.post, length: 200)
+  .name 
     = link_to post.user.name, user_path(post.user.id)
