@@ -1,0 +1,14 @@
+<%= link_to "投稿する", "#modal1", class: "waves-effect waves-light modal-trigger" %>
+<div id="modal1" class="modal">
+  <%= form_for @post, html: { id: "new-post" } do |f| %>
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= f.text_field :title, placeholder: "タイトル", class: "text_title" %>
+        <%= f.text_area :post, placeholder: "本文", class: "text_content input-field col s12 materialize-textarea" %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "投稿する", class: "modal-close waves-effect waves-green btn btn-flat" %>
+    </div>
+  <% end %>
+</div>
