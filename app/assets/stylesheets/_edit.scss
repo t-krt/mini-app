@@ -1,0 +1,21 @@
+.content-post-create{
+  width: 100%;
+  h4 {
+    margin: 50px auto 0 auto;
+    width: 60vw;
+  }
+  .edit-form {
+    margin: 0 auto;
+    width: 60vw;
+  }
+  .btn {
+    float: right;
+    input {
+      color: white;
+    }
+  }
+}
+
+.materialize-textarea {
+  height: 50px;
+}

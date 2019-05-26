@@ -1,6 +1,12 @@
-.flash {
+.flash-box {
   background-color: #82aaaa;
-  text-align: center;
-  line-height: 30px;
-  color: white;
+  width: 100%;
+  .flash {
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+  }
 }

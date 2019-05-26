@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :edit, :show]
 
   def index
+    @post = Post.new
     @posts = Post.includes(:user).page(params[:page]).per(5).order(id: :DESC)
   end
 
@@ -11,11 +12,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to root_path, notice: "投稿が完了しました"
-    else
-      render "new"
+    @post = Post.create(post_params)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json
     end
   end
 

@@ -11,7 +11,7 @@
           %li
             = link_to '編集', edit_post_path(post, post_id: params[:id])
           %li 
-            = link_to '削除', "/posts/#{post.id}", method: :delete
+            = link_to '削除', "/posts/#{post.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
   .innerS
     = truncate(post.post, length: 200)
   .name 

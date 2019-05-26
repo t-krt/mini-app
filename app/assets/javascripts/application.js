@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize
+//= require materialize-sprockets
 
 $(document).ready(function(){
   $('.sidenav').sidenav();

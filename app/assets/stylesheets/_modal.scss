@@ -1,0 +1,34 @@
+#modal1 {
+  height: 30%;
+  margin: 0 auto;
+  width: 50vw;
+  .modal {
+    width: 50vw;
+    .modal-footer {
+      height: 75px;
+    }
+  } 
+}
+
+#post_post {
+  padding-top: 30px;
+}
+
+.error-message {
+  color: black;
+  height: 280px;
+}
+
+.modal-close {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.modal-trigger {
+  padding: 0 22.5px 5px 22.5px;
+}
+
+.waves-button-input {
+  height: 100%;
+  width: 100%;
+}

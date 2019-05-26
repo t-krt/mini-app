@@ -1,3 +1,17 @@
 .contents-row
   .content_post__show
-    = render @post
+    %h2
+      = simple_format(@post.title) 
+    - if user_signed_in? && current_user.id == @post.user.id
+      .more
+        %i.material-icons
+          arrow_drop_down
+        %ul.more_list
+          %li
+            = link_to '編集', edit_post_path(@post, post_id: params[:id])
+          %li 
+            = link_to '削除', "/posts/#{@post.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
+    .inner__show
+      = @post.post
+    .name 
+      = link_to @post.user.name, user_path(@post.user.id)
